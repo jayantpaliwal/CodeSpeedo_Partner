@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h6>Balance :</h6>
+            <span>{{balance | number:'1.0-2'}}</span>
+
+            <form cform [formGroup]="form" class="mb-2">
+                <div class="mb-3 col-4">
+                    <label cLabel for="exampleFormControlInput1">Enter Amount to withdraw</label>
+                    <input formControlName="amount" cFormControl id="exampleFormControlInput1" type="number"
+                        placeholder="Enter Amount" min="0" />
+                </div>
+                <span class="text-danger" *ngIf="form.controls['amount'].touched && form.controls['amount'].hasError">
+                    <span class="text-danger" *ngIf="form.controls['amount'].hasError('max')">Amount should be less than
+                        or equals to available balance. </span>
+                    <!-- <span class="text-danger" *ngIf="form.controls['amount'].hasError('max')">Minimum amount for withdrawal is $5</span> -->
+                </span>
+            </form>
+
+            <div class="col-12">
+                <span>
+                    Payment will be transfered to your paypal account.
+
+                </span>
+            </div>
+
+            <button class="btn btn-success text-white mt-4" [disabled]="!form.valid" (click)="withdraw()">
+                Withdraw Now!
+            </button>
+        </div>
+    </div>
+</div>

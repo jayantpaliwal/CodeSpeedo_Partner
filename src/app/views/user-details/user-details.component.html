@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="mb-4">
+        <h6>
+            Name : {{userData?.FirstName}}
+        </h6>
+        <h6>
+            Email : {{userData?.Email}}
+        </h6>
+    </div>
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="mb-3">Transactions</h6>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Payment Datetime </th>
+                            <th scope="col">Refferal Amount</th>
+                            <!-- <th scope="col">Proccessed At</th>
+                        <th scope="col">Status</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let r of transactions ; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{r.Created_at | date:'medium'}}</td>
+                            <td class="text-success">$ {{((r.Amount*16.67)/100) | number:'1.0-2' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

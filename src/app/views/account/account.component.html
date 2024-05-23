@@ -1,0 +1,40 @@
+
+<div class="container">
+    <div class="card p-4">
+        <h4 class="page-title">Account Details</h4>
+       <div class="DetailsBox">
+        <div class="mb-2">
+            <span> <b>Name :</b> {{user?.FirstName}}</span>
+        </div>
+        <div class="mb-2">
+            <span> <b>Email : </b>{{user?.Email}}</span>
+        </div>
+
+        <div class="">
+            <span> <b>Referal Link : </b><span *ngIf="user?.Ref_Code" class="text-primary text-underline hover-curser" (click)="copy()" >
+                    https://app.codespeedo.com/editor/#/signup-auth?r={{user?.Ref_Code}} </span></span>
+        </div>
+       </div>
+        <!-- <div class="row mb-3">
+            <b>Phone : {{user?.Email}}</b>
+        </div> -->
+        <form [formGroup]="form">
+            <div class="row">
+                <!-- <div class="mb-3 col-4">
+                    <label cLabel for="exampleFormControlInput1">Paypal ID</label>
+                    <input cFormControl id="exampleFormControlInput1" formControlName="paypal_id" type="text" />
+                </div> -->
+                <div class="mb-3 col-4">
+                    <label cLabel for="exampleFormControlInput1">Paypal Email / Paypal.me</label>
+                    <input cFormControl id="exampleFormControlInput1" formControlName="paypal_email" type="text" />
+                </div>
+                <!-- <div class="mb-3 col-4">
+                    <label cLabel for="exampleFormControlInput1">Paypal Phone</label>
+                    <input cFormControl id="exampleFormControlInput1" formControlName="paypal_phone" type="text" />
+                </div> -->
+            </div>
+           
+            <button class="btn save_btn mt-2" (click)="update()"> Save </button>
+        </form>
+    </div>
+</div>

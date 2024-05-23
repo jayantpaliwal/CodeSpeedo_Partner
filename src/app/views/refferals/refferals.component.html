@@ -1,0 +1,48 @@
+<div class="container">
+
+  <div class="row mb-4 d-flex justify-content-end">
+    <div class="col-4">
+      <select class="form-select" aria-label="Filter" (change)="filterUsers($event)">
+        <option selected>All</option>
+        <option value=1>Paid</option>
+        <option value=2>Not Paid</option>
+        <!-- <option value="3">Three</option> -->
+      </select>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let r of records ; let i = index" (click)="userDetails(r)">
+              <th scope="row">{{i+1}}</th>
+              <td>{{r.FirstName}}</td>
+              <td>{{r.Email}}</td>
+              <!-- <td>{{r.MobileNo == null || r.MobileNo == '' || r.MobileNo == 'null' ? 'N/A' : r.MobileNo}}</td> -->
+              <td>{{r.CreatedDate | date:'short'}}</td>
+              <!-- <td>{{r.LastLogin | date:'short'}}</td> -->
+              <td><span [class.text-danger]="r.Status != 'ACTIVE'"
+                  [class.text-success]="r.Status == 'ACTIVE'">{{r.Status ==
+                  null ? 'N/A' :r.Status }}
+                </span></td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <h6 *ngIf="!records.length && loaded" class="text-center mt-2"> No users found. </h6>
+      </div>
+    </div>
+  </div>
+</div>

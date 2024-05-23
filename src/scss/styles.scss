@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+
+// If you want to override variables do it here
+@import "variables";
+
+// Import styles with default layout.
+@import "@coreui/coreui/scss/coreui";
+
+// Import Chart.js custom tooltips styles
+@import "@coreui/chartjs/scss/coreui-chartjs";
+
+// Custom styles for this theme
+@import "theme";
+
+// Some temp fixes
+//@import "fixes";
+
+// If you want to add custom CSS you can put it here.
+@import "custom";
+
+// Examples
+// We use those styles to show code examples, you should remove them in your application.
+@import "examples";
+
+.card{
+    border: 0;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
+}
+.form-control{
+    border-top: solid 1px #e5e5e5;
+    border-left: solid 1px #e5e5e5;
+    border-right: solid 1px #e5e5e5;
+    border-bottom: solid 2px #4257C0;
+    // box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 8px;
+    padding: 10px 15px;
+}
+.form-control:focus {    
+    box-shadow: 0 0 0 0.15rem rgb(161 160 255 / 25%);
+}
+.page-title{
+    color: #322C7A;
+    font-size: 20px;
+    font-weight: 600;
+}
+.sidebar {
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+.sidebar-nav{
+    --cui-sidebar-nav-link-hover-bg: #33176f63;
+}
+#sidebar1 .border-top {
+    border-top: var(--cui-border-width) var(--cui-border-style) #c8c8c880 !important;
+}
+#sidebar1 .border-bottom {
+    border-bottom: var(--cui-border-width) var(--cui-border-style) #333780 !important;
+}
+.header-toggler{
+    color: #321970;
+}
+.header-nav .avatar-md {
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 1rem;
+}
+.wrapper{
+    background-color: #F5FCFF;
+}
+.header{
+    --cui-header-toggler-color: #321970;
+    border-bottom: none;
+}
+.footer{
+    --cui-footer-bg: transparent;
+}
+.sidebar-toggler::before{
+    background-color: rgb(255 255 255 / 83%);
+}
+.codeSpeedo_logo{
+    height: 50px;
+    width: 220px;
+    object-fit: contain;
+}

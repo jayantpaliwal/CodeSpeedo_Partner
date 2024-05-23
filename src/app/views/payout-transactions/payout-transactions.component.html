@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row m-2 d-flex justify-content-end">
+    <div class="col-4 text-end">
+      <button class="btn btn-primary" (click)="create()">Create Payout Request</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <h6>Recent Payouts</h6>
+    </div>
+
+    <div class="card-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Placed At </th>
+            <th scope="col">Request Amount</th>
+            <th scope="col">Proccessed At</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of records ; let i = index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{r.Request_Datetime | date:'medium'}}</td>
+            <td>{{r.Request_Amount}}</td>
+            <td>
+              <span *ngIf="r.Success_Datetime !== null">
+                {{ r.Success_Datetime | date }}
+              </span>
+              <span *ngIf="r.Success_Datetime === null">
+                -
+              </span>
+            </td>
+            <td [class.text-primary]="r.Status == 'CREATED'" [class.text-success]="r.Status == 'SUCCESS'"
+              [class.text-danger]="r.Status == 'REJECTED'" [class.text-warning]="r.Status == 'PROCCESSING'">{{r.Status
+              }}</td>
+
+            <!-- <td><span [class.text-danger]="r.Status != 'ACTIVE'" [class.text-success]="r.Status == 'ACTIVE'">{{r.Status ==
+                        null ? 'N/A' :r.Status }}
+                      </span></td> -->
+          </tr>
+
+        </tbody>
+      </table>
+
+      <h6 *ngIf="!records.length && loaded" class="text-center mt-2"> No payout requests found. </h6>
+    </div>
+  </div>
+</div>
